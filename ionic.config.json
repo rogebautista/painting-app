@@ -1,0 +1,7 @@
+{
+  "name": "painting-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

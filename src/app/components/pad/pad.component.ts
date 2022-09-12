@@ -3,11 +3,11 @@ import { Platform, ToastController } from '@ionic/angular';
 import { Base64ToGallery, Base64ToGalleryOptions } from '@ionic-native/base64-to-gallery/ngx';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-pad',
+  templateUrl: './pad.component.html',
+  styleUrls: ['./pad.component.scss'],
 })
-export class HomePage implements  AfterViewInit{
+export class PadComponent implements AfterViewInit {
 
   @ViewChild('imageCanvas', { static: false }) canvas: any;
   canvasElement: any;

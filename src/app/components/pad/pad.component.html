@@ -1,12 +1,4 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>
-      Ionic Canvas Drawing
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-<!--
-<ion-content [forceOverscroll]="false">
+<ion-content [forceOverscroll]="false" [fullscreen]="true">
   <ion-row>
     <ion-col *ngFor="let color of colors" [style.background]="color" class="color-block" tappable
              (click)="selectColor(color)"></ion-col>
@@ -36,19 +28,4 @@
     <ion-icon slot="start" name="download"></ion-icon>
     Export Canvas Image
   </ion-button>
-</ion-content>
--->
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-  <app-pad></app-pad>
 </ion-content>

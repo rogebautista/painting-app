@@ -139,4 +139,9 @@ export class PadComponent implements AfterViewInit {
     return blob;
   }
 
+  clearCanvas(){
+    let ctx = this.canvasElement.getContext('2d');
+    ctx.clearRect(0,0, this.canvasElement.width, this.canvasElement.height);
+  }
+
 }

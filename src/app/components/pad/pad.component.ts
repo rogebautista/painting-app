@@ -1,6 +1,8 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { Platform, ToastController } from '@ionic/angular';
 import { Base64ToGallery, Base64ToGalleryOptions } from '@ionic-native/base64-to-gallery/ngx';
+import { DomSanitizer } from '@angular/platform-browser';
+import {SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 @Component({
   selector: 'app-pad',
@@ -13,6 +15,7 @@ export class PadComponent implements AfterViewInit {
   canvasElement: any;
   saveX: number;
   saveY: number;
+  imageBase64 = '';
 
   selectedColor = '#9e2956';
   colors = [ '#9e2956', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3' ];
@@ -20,7 +23,9 @@ export class PadComponent implements AfterViewInit {
   drawing = false;
   lineWidth = 5;
 
-  constructor(private plt: Platform, private base64ToGallery: Base64ToGallery, private toastCtrl: ToastController) {}
+  constructor(private plt: Platform, private base64ToGallery: Base64ToGallery, private toastCtrl: ToastController,
+              public domSanitizerService: DomSanitizer,
+              private socialSharing: SocialSharing) {}
 
   ngAfterViewInit() {
     // Set the Canvas Element and its size
@@ -81,6 +86,8 @@ export class PadComponent implements AfterViewInit {
 
   exportCanvasImage() {
     var dataUrl = this.canvasElement.toDataURL();
+    this.imageBase64 = this.canvasElement.toDataURL();
+    console.log('Imagen en base 64 '+ this.imageBase64);
 
     // Clear the current canvas
     let ctx = this.canvasElement.getContext('2d');
@@ -96,6 +103,7 @@ export class PadComponent implements AfterViewInit {
             message: 'Image saved to camera roll.',
             duration: 2000
           });
+          console.log(res);
           toast.present();
         },
         err => console.log('Error saving image to gallery ', err)
@@ -142,6 +150,17 @@ export class PadComponent implements AfterViewInit {
   clearCanvas(){
     let ctx = this.canvasElement.getContext('2d');
     ctx.clearRect(0,0, this.canvasElement.width, this.canvasElement.height);
+  }
+  shareSign(){
+    let options = {
+      title: 'Optional title',
+      text: 'Optional message',
+      url: 'http://www.myurl.com',
+      files: [this.imageBase64]
+    };
+    this.socialSharing.shareWithOptions(options).then(()=>{
+      console.log('Successful share');
+    });
   }
 
 }

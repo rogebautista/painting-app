@@ -24,9 +24,9 @@ export class HomePage implements  AfterViewInit{
 
   ngAfterViewInit() {
     // Set the Canvas Element and its size
-    this.canvasElement = this.canvas.nativeElement;
-    this.canvasElement.width = this.plt.width() + '';
-    this.canvasElement.height = 200;
+    //this.canvasElement = this.canvas.nativeElement;
+    //this.canvasElement.width = this.plt.width() + '';
+    //this.canvasElement.height = 200;
   }
 
   startDrawing(ev) {

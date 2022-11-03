@@ -32,4 +32,9 @@
     <ion-icon slot="start" name="clear"></ion-icon>
     Clear canvas
   </ion-button>
+  <ion-button expand="full" (click)="shareSign()">
+    <ion-icon slot="start" name="clear"></ion-icon>
+    Share Sign
+  </ion-button>
+  <img [src]="domSanitizerService.bypassSecurityTrustUrl(imageBase64)" alt="Sign"/>
 </ion-content>

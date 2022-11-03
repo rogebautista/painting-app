@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'format',
+    loadChildren: () => import('./format-seven-one/format-seven-one.module').then( m => m.FormatSevenOnePageModule)
+  },
 ];
 
 @NgModule({

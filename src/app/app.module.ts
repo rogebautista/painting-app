@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import {SocialSharing} from '@awesome-cordova-plugins/social-sharing/ngx';
 //import { PDFGenerator } from '@ionic-native/pdf-generator/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 
 // imports
@@ -30,7 +31,7 @@ import {SocialSharing} from '@awesome-cordova-plugins/social-sharing/ngx';
     SocialSharing,
     //PDFGenerator,
     //File,
-    //FileOpener,
+    FileOpener,
   ],
   bootstrap: [AppComponent],
 })

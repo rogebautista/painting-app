@@ -15,6 +15,9 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import {FormatSevenTwelve} from "../interfaces/format-seven-one";
+import {Trainee} from "../interfaces/Trainee";
+import {FormatCardOperationModel} from "../interfaces/model-format-operations";
 
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 
@@ -31,10 +34,33 @@ export class FormatSevenOnePage implements OnInit {
   selectMode = 'date';
   //blockTime = format(new Date(), 'T09:00:00.00Z');
   pdfObj = null;
+  format712: FormatSevenTwelve;
+  trainee = {
+    fullName: 'Rogelio Bautista',
+    crewID: 'Jejejeje',
+    licenseN: 'jejejejejejenonsd',
+    nickname: 'pillo'
+  } as Trainee;
+  cards: string[] = ["OPERACIONES NORMALES",
+    "OPERACIONES ANORMALES", "OPERACIONES ESPECIALES",
+    "FACTORES HUMANOS", "CRM"
+  ];
+  formatEvaluationsDate: FormatCardOperationModel;
+
+
   constructor(
     private modalCtrl: ModalController,
     private fileOpener: FileOpener,
-    private platform: Platform) { }
+    private platform: Platform) {
+    this.format712 = {
+      normalOperations: {},
+      abnormalOperations: {},
+      specialOperations: {},
+      crm: {},
+      humanFactors: {},
+    } as FormatSevenTwelve;
+
+  }
 
   ngOnInit() {
   }
@@ -49,48 +75,17 @@ export class FormatSevenOnePage implements OnInit {
   }
   createPDF(){
     const formValue = this.dateValue;
-    const docDefinition = {
-      watermark: { text: 'Hola Nat', color: 'blue', opacity: 0.2, bold: true },
-      content: [{
-        columns: [
-          {
-            text: this.dateValue,
-            alignment: 'right'
-          }
-        ]
-      },
-        {
-          text: 'Hellloo Nat', style: 'header'
-        },
-        {
-          columns: [
-            {
-              width: '50%',
-              text: 'From',
-              style: 'subheader'
-            },
-            {
-              width: '50%',
-              text: 'To',
-              style: 'subheader'
-            },
-          ]
-        }
-      ],
-      styles: {
-        header: {
-          fontSize: 18,
-          bold: true,
-          margin: [0, 15, 0, 0]
-        },
-        subheader: {
-          fontSize: 14,
-          bold: true,
-          margin: [0, 15, 0, 0]
-        }
+    pdfMake.fonts = {
+      Roboto: {
+        normal: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Regular.ttf',
+        bold: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Medium.ttf',
+        italics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Italic.ttf',
+        bolditalics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-MediumItalic.ttf'
       }
     };
-    this.pdfObj = pdfMake.createPdf(docDefinition);
+
+
+    this.pdfObj = pdfMake.createPdf(this.makePdfFormat()).download();
     console.log(this.pdfObj);
   }
   downloadPDF(){
@@ -114,6 +109,142 @@ export class FormatSevenOnePage implements OnInit {
     }else{
       this.pdfObj.download();
     }
+  }
+
+  makePdfFormat(){
+    this.format712.recordID = 'FR345HY';
+    this.format712.formID = '087654ERTYUIJHGF';
+    this.format712.traineeName = 'Rogelio BAutista Sánchez';
+    this.format712.traineeLicenseNo = '346YRY789TYR30';
+    this.format712.evaluatedPosition = 'DEsconocido';
+
+    return {
+      watermark: { text: 'Docrew', color: 'blue', opacity: 0.2, bold: true },
+      content: [
+        {
+          columns: [
+            {
+              text: new Date().toTimeString(),
+              alignment: 'right',
+              margin: [0, 0, 0, 12]
+            }
+          ]
+        },
+        {
+          text: 'Evaluation Format',
+          style: 'header',
+          margin: [0, 0, 0, 20]
+        },
+        { // definiciòn de fila
+          columns: [
+            {
+              width: 60,
+              text: 'Form ID: ', style: 'subheader'
+            },
+            {
+              width: '*',
+              text: this.format712.formID, style: 'content'
+            },
+            {
+              width: 80,
+              text: 'Record ID: ', style: 'subheader'
+            },
+            {
+              width: '20%',
+              text: this.format712.recordID, style: 'content'
+            }
+          ]
+        },
+        { // fila
+          text: 'Trainee Name: ', style: 'subheader'
+        },
+        { // fila
+          text: this.format712.traineeName, style: 'contentLine'
+        },
+        /*{
+          text: 'noBorders:', fontSize: 14, bold: true, margin: [0, 0, 0, 8]
+        },*/
+        {
+          text: '',
+          style: 'contentLine'
+        },
+        {
+          style: 'tableExample',
+          table: {
+            widths: [180, '*'],
+            headerRows: 1,
+            body: [
+              [{text: 'Trainee Licence No. :', style: 'tableHeader'},
+                {text: 'Evaluated Position:', style: 'tableHeader'}],
+              [this.format712.traineeLicenseNo, this.format712.evaluatedPosition],
+            ]
+          },
+          layout: 'noBorders'
+        },
+        /*{ // tabla
+          style: 'tableExample',
+          table: {
+            widths: [100, '*', 200, '*'],
+            body: [
+              ['width=100', 'star-sized', 'width=200', 'star-sized'],
+              ['fixed-width cells have exactly the specified width',
+                {text: 'nothing interesting here', italics: true, color: 'gray'},
+                {text: 'nothing interesting here', italics: true, color: 'gray'},
+                {text: 'nothing interesting here', italics: true, color: 'gray'}
+              ]
+            ]
+          }
+        },*/
+        {
+          columns:
+            [
+              {
+                width: 160,
+                text: 'Normal operations : ', style: 'subheader'
+              },
+              {
+                width: '*',
+                text: 'Contenido', style: 'content'
+              }
+            ],
+        }
+      ],
+      styles: {
+        header: {
+          fontSize: 16,
+          bold: true,
+          margin: [0, 15, 0, 0]
+        },
+        subheader: {
+          fontSize: 14,
+          bold: true,
+          margin: [0, 15, 0, 0]
+        },
+        content: {
+          fontSize: 12,
+          bold: false,
+          margin: [0, 15, 0, 0],
+          font: 'Roboto'
+        },
+        contentLine: {
+          fontSize: 12,
+          bold: false,
+          margin: [0, 10, 0, 0],
+          font: 'Roboto'
+        },
+        rowSpace: {
+          margin: [0, 10, 0, 0]
+        },
+        tableExample: {
+          margin: [0, 5, 0, 15]
+        },
+        tableHeader: {
+          bold: true,
+          fontSize: 13,
+          color: 'black'
+        }
+      }
+    };
   }
 
 }

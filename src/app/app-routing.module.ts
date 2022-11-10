@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'format',
     loadChildren: () => import('./format-seven-one/format-seven-one.module').then( m => m.FormatSevenOnePageModule)
+  },  {
+    path: 'format-seven-thirteen',
+    loadChildren: () => import('./format-seven-thirteen/format-seven-thirteen.module').then( m => m.FormatSevenThirteenPageModule)
   },
+
 ];
 
 @NgModule({

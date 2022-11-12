@@ -133,24 +133,31 @@ export class FormatSevenThirteenPage implements OnInit {
         {
           style: 'tableExampleList',
           table: {
-            widths: [180, 100],
+            widths: [200, 'auto', 'auto'],
             heights: 10,
             body: [
-
-              [{text:'This is a dummy text', style: 'contentList' },
-                {text: 'This is another text', style: 'contentList', italics: true, color: 'gray'}],
-              //[{text:this.formatEvaluationsDate['FACTORES HUMANOS'][1].label, style: 'contentList' },
-              // {text: this.formatEvaluationsDate['FACTORES HUMANOS'][1].value, style: 'contentList', italics: true, color: 'gray'}],
-              //[{text:this.formatEvaluationsDate['FACTORES HUMANOS'][2].label, style: 'contentList' },
-              // {text: this.formatEvaluationsDate['FACTORES HUMANOS'][2].value, style: 'contentList', italics: true, color: 'gray'}],
-              //[{text:this.formatEvaluationsDate['FACTORES HUMANOS'][3].label, style: 'contentList' },
-              // {text: this.formatEvaluationsDate['FACTORES HUMANOS'][3].value, style: 'contentList', italics: true, color: 'gray'}],
+              [{text: 'Segment '+ element.number, style: 'tableHeader', colSpan: 2, alignment: 'center'}, {}, {text: element.date, style: 'tableHeader', alignment: 'center'}],
+              [{text: 'Landing Selection', style: 'tableHeader', alignment: 'center'}, {text: 'Departure', style: 'tableHeader', alignment: 'center'}, {text: 'Arrival', style: 'tableHeader', alignment: 'center'}],
+              [element.landingSelection, element.departure, element.arrival],
+              [{rowSpan: 4, text: 'Comments: \n'+ element.comments}, {text:'Diurno', style: 'tableHeader', alignment: 'center'}, {text:'Nocturno', style: 'tableHeader', alignment: 'center'}],
+              ['', element.diurno, element.nocturno],
+              ['', {text:'PF', style: 'tableHeader', alignment: 'center'}, {text:'PNF', style: 'tableHeader', alignment: 'center'}],
+              ['', element.pf, element.pnf],
+              ['Sample value 1', 'Sample value 2', 'Sample value 3'],
+              ['Acumulated: '+ element.accumulated, {colSpan: 2, rowSpan: 2, text: 'Both:\nrowSpan and colSpan\ncan be defined at the same time'}, ''],
+              ['Total: '+element.total, '', ''],
             ]
           }
         }
       );
+      this.sectionSegmentsArray.push(
+        {
+          text: '',
+          style: 'contentLine'
+        }
+      );
     });
-    console.info(this.sectionSegmentsArray);
+    //console.info(this.sectionSegmentsArray);
     return this.sectionSegmentsArray;
   }
   makePdfFormat(){
@@ -207,8 +214,8 @@ export class FormatSevenThirteenPage implements OnInit {
           headerRows: 1,
           body: [
             [{text: 'Trainee Licence No. :', style: 'tableHeader'},
-              {text: 'Evaluated Position:', style: 'tableHeader'}],
-            //[this.trainee.licenseN, this.format712.evaluatedPosition],
+              {text: 'Instructor License:', style: 'tableHeader'}],
+            [this.trainee.licenseN, this.instructor.licenseN],
           ]
         },
         layout: 'noBorders'

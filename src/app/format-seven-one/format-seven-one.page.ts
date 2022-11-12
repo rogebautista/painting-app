@@ -86,7 +86,7 @@ export class FormatSevenOnePage implements OnInit {
 
 
     this.pdfObj = pdfMake.createPdf(this.makePdfFormat()).download();
-    console.log(this.pdfObj);
+    //console.log(this.pdfObj);
   }
   downloadPDF(){
     if (this.platform.is('cordova')) {
@@ -117,7 +117,67 @@ export class FormatSevenOnePage implements OnInit {
     this.format712.traineeName = 'Rogelio BAutista Sánchez';
     this.format712.traineeLicenseNo = '346YRY789TYR30';
     this.format712.evaluatedPosition = 'DEsconocido';
-
+    const operacionesNormales = { // tabla
+      style: 'tableExample',
+        table: {
+      widths: [100, '*'],
+        body: [
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}]
+      ]
+    }
+    };
+    const operacionesAnormales = { // tabla
+      style: 'tableExample',
+      table: {
+        widths: [100, '*'],
+        body: [
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}]
+        ]
+      }
+    };
+    const operacionesEspeciales = { // tabla
+      style: 'tableExample',
+      table: {
+        widths: [100, '*'],
+        body: [
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}]
+        ]
+      }
+    };
+    const factoresHumanos = { // tabla
+      style: 'tableExample',
+      table: {
+        widths: [100, '*'],
+        body: [
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}]
+        ]
+      }
+    };
+    const crm = { // tabla
+      style: 'tableExample',
+      table: {
+        widths: [100, '*'],
+        body: [
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}],
+          ['Flight Preparation', {text: '08-Nov-2022', italics: true, color: 'gray'}]
+        ]
+      }
+    };
+    //console.log('elemento anidado ',this.formatEvaluationsDate.normal_operations[0]);
     return {
       watermark: { text: 'Docrew', color: 'blue', opacity: 0.2, bold: true },
       content: [
@@ -181,6 +241,16 @@ export class FormatSevenOnePage implements OnInit {
           },
           layout: 'noBorders'
         },
+        {text: this.cards[0], style: 'subheader'},
+        operacionesNormales,
+        {text: this.cards[1], style: 'subheader'},
+        operacionesAnormales,
+        {text: this.cards[2], style: 'subheader'},
+        operacionesEspeciales,
+        {text: this.cards[3], style: 'subheader'},
+        factoresHumanos,
+        {text: this.cards[4], style: 'subheader'},
+        crm,
         /*{ // tabla
           style: 'tableExample',
           table: {

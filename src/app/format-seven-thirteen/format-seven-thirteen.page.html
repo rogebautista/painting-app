@@ -5,5 +5,23 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" class="float-btn">
+    <ion-fab-button color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <!--<ion-fab-button color="danger" (click)="this.delete()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="onSave712()" color="tertiary">
+        <ion-icon name="save-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="warning" (click)="onShareFile()">
+        <ion-icon name="share-outline"></ion-icon>
+      </ion-fab-button>-->
+      <ion-fab-button color="success" (click)="createPDF()">
+        <ion-icon name="share-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

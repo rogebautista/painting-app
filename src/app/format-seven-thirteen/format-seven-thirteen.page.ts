@@ -105,6 +105,204 @@ export class FormatSevenThirteenPage implements OnInit {
       instructorName: 'Humberto Huerta',
       instructorLicense: 2,
       instructorSignature: ''
+    },
+    {
+      "data": [
+        {
+          "enablingType": "ioe",
+          "segmentB": {
+            "nocturno": "1:30",
+            "departure": "CUN",
+            "totalHrs": "1:30",
+            "comments": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni animi nulla nesciunt id velit. Sunt voluptates aperiam saepe illo eaque?. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, assumenda!.",
+            "segmentNo": "2",
+            "landingPNF": "0",
+            "instructorName": "John Doe",
+            "instructorLicenseNo": 123456789,
+            "landingPF": "2",
+            "sDate": "2022-10-13",
+            "arrival": "MEX",
+            "instructorSignature": 1667493129,
+            "diurno": "00:00",
+            "accumulated": "6:30"
+          },
+          "traineeLicenseNo": 293857601,
+          "segmentA": {
+            "landingPNF": "0",
+            "sDate": "2022-10-13",
+            "landingPF": "1",
+            "nocturno": "2:00",
+            "departure": "MEX",
+            "instructorName": "John Doe",
+            "segmentNo": "1",
+            "comments": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni animi nulla nesciunt id velit. Sunt voluptates aperiam saepe illo eaque?. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, assumenda!.",
+            "instructorSignature": 1667493129,
+            "instructorLicenseNo": 123456789,
+            "totalHrs": "5:00",
+            "accumulated": "5:00",
+            "diurno": "3:00",
+            "arrival": "CUN"
+          },
+          "recordID": 1665600362,
+          "traineeID": "D00001",
+          "formID": 1665780201,
+          "evaluatedPosition": "FO",
+          "traineeName": "Humberto Huerta"
+        },
+        {
+          "segmentB": {
+            "nocturno": "0",
+            "departure": "CUN",
+            "totalHrs": "0",
+            "comments": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni animi nulla nesciunt id velit. Sunt voluptates aperiam saepe illo eaque?. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, assumenda!.",
+            "segmentNo": "4",
+            "landingPNF": "0",
+            "instructorName": "John Doe",
+            "instructorLicenseNo": 1,
+            "landingPF": "2",
+            "sDate": "2022-10-13",
+            "arrival": "MEX",
+            "diurno": "0",
+            "accumulated": "0"
+          },
+          "traineeLicenseNo": 2,
+          "segmentA": {
+            "landingPNF": "0",
+            "sDate": "2022-10-13",
+            "landingPF": "1",
+            "nocturno": "0",
+            "departure": "MEX",
+            "instructorName": "John Doe",
+            "segmentNo": "3",
+            "comments": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni animi nulla nesciunt id velit. Sunt voluptates aperiam saepe illo eaque?. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, assumenda!.",
+            "instructorLicenseNo": 1,
+            "totalHrs": "0",
+            "accumulated": "0",
+            "diurno": "0",
+            "arrival": "CUN"
+          },
+          "recordID": 1665600362,
+          "traineeID": "D00001",
+          "revision": 28,
+          "formID": 1666981828,
+          "traineeName": "Humberto Huerta"
+        },
+        {
+          "segmentB": {
+            "nocturno": "0",
+            "departure": "CUN",
+            "totalHrs": "0",
+            "comments": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni animi nulla nesciunt id velit. Sunt voluptates aperiam saepe illo eaque?. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, assumenda!.",
+            "segmentNo": "6",
+            "landingPNF": "0",
+            "instructorName": "John Doe",
+            "instructorLicenseNo": 1,
+            "landingPF": "2",
+            "sDate": "2022-10-13",
+            "arrival": "MEX",
+            "diurno": "0",
+            "accumulated": "0"
+          },
+          "traineeLicenseNo": 2,
+          "segmentA": {
+            "landingPNF": "0",
+            "sDate": "2022-10-13",
+            "landingPF": "1",
+            "nocturno": "0",
+            "departure": "MEX",
+            "instructorName": "John Doe",
+            "segmentNo": "5",
+            "comments": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni animi nulla nesciunt id velit. Sunt voluptates aperiam saepe illo eaque?. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, assumenda!.",
+            "instructorLicenseNo": 1,
+            "totalHrs": "0",
+            "accumulated": "0",
+            "diurno": "0",
+            "arrival": "CUN"
+          },
+          "recordID": 1665600362,
+          "traineeID": "D00001",
+          "revision": 28,
+          "formID": 1666981842,
+          "traineeName": "Humberto Huerta"
+        },
+        {
+          "segmentB": {
+            "nocturno": "0",
+            "departure": "CUN",
+            "totalHrs": "0",
+            "comments": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni animi nulla nesciunt id velit. Sunt voluptates aperiam saepe illo eaque?. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, assumenda!.",
+            "segmentNo": "8",
+            "landingPNF": "0",
+            "instructorName": "John Doe",
+            "instructorLicenseNo": 1,
+            "landingPF": "2",
+            "sDate": "2022-10-13",
+            "arrival": "MEX",
+            "diurno": "0",
+            "accumulated": "0"
+          },
+          "traineeLicenseNo": 2,
+          "segmentA": {
+            "landingPNF": "0",
+            "sDate": "2022-10-13",
+            "landingPF": "1",
+            "nocturno": "0",
+            "departure": "MEX",
+            "instructorName": "John Doe",
+            "segmentNo": "7",
+            "comments": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni animi nulla nesciunt id velit. Sunt voluptates aperiam saepe illo eaque?. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, assumenda!.",
+            "instructorLicenseNo": 1,
+            "totalHrs": "0",
+            "accumulated": "0",
+            "diurno": "0",
+            "arrival": "CUN"
+          },
+          "recordID": 1665600362,
+          "traineeID": "D00001",
+          "revision": 28,
+          "formID": 1666981852,
+          "traineeName": "Humberto Huerta"
+        },
+        {
+          "segmentB": {
+            "nocturno": "0",
+            "departure": "CUN",
+            "totalHrs": "0",
+            "comments": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni animi nulla nesciunt id velit. Sunt voluptates aperiam saepe illo eaque?. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, assumenda!.",
+            "segmentNo": "10",
+            "landingPNF": "0",
+            "instructorName": "John Doe",
+            "instructorLicenseNo": 1,
+            "landingPF": "2",
+            "sDate": "2022-10-13",
+            "arrival": "MEX",
+            "diurno": "0",
+            "accumulated": "0"
+          },
+          "traineeLicenseNo": 2,
+          "segmentA": {
+            "landingPNF": "0",
+            "sDate": "2022-10-13",
+            "landingPF": "1",
+            "nocturno": "0",
+            "departure": "MEX",
+            "instructorName": "John Doe",
+            "segmentNo": "9",
+            "comments": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni animi nulla nesciunt id velit. Sunt voluptates aperiam saepe illo eaque?. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, assumenda!.",
+            "instructorLicenseNo": 1,
+            "totalHrs": "0",
+            "accumulated": "0",
+            "diurno": "0",
+            "arrival": "CUN"
+          },
+          "recordID": 1665600362,
+          "traineeID": "D00001",
+          "revision": 28,
+          "formID": 1666981865,
+          "traineeName": "Humberto Huerta"
+        }
+      ],
+      "success": true
     }
   ];
   constructor() { }
@@ -180,8 +378,7 @@ export class FormatSevenThirteenPage implements OnInit {
       { // definiciòn de fila
         columns: [
           {
-            width: 60,
-            text: 'Form ID: ', style: 'subheader'
+            width: 60,w
           },
           {
             width: '*',

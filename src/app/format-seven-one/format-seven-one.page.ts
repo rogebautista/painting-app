@@ -12,13 +12,12 @@ import {Directory, Filesystem} from '@capacitor/filesystem';
 import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 */
-
-import * as pdfMake from 'pdfmake/build/pdfmake';
-import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import {FormatSevenTwelve} from "../interfaces/format-seven-one";
 import {Trainee} from "../interfaces/Trainee";
 import {FormatCardOperationModel} from "../interfaces/model-format-operations";
 
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
@@ -88,28 +87,7 @@ export class FormatSevenOnePage implements OnInit {
     this.pdfObj = pdfMake.createPdf(this.makePdfFormat()).download();
     //console.log(this.pdfObj);
   }
-  downloadPDF(){
-    if (this.platform.is('cordova')) {
-      this.pdfObj.getBase64(async (data) => {
-        try{
-          let path = `pdf/filedoc_${Date.now()}.pdf`;
-          const result = await Filesystem.writeFile({
-            path,
-            data,
-            directory: Directory.Documents,
-            recursive: true
-          });
-          this.fileOpener.open(`${result.uri}`,'application/pdf');
 
-        }catch (e) {
-          console.error('Unable to write file ', e);
-        }
-      });
-      console.log('hejejejeje');
-    }else{
-      this.pdfObj.download();
-    }
-  }
 
   makePdfFormat(){
     this.format712.recordID = 'FR345HY';
@@ -317,4 +295,28 @@ export class FormatSevenOnePage implements OnInit {
     };
   }
 
+
+
+  downloadPDF(){
+    if (this.platform.is('cordova')) {
+      this.pdfObj.getBase64(async (data) => {
+        try{
+          let path = `pdf/filedoc_${Date.now()}.pdf`;
+          const result = await Filesystem.writeFile({
+            path,
+            data,
+            directory: Directory.Documents,
+            recursive: true
+          });
+          this.fileOpener.open(`${result.uri}`,'application/pdf');
+
+        }catch (e) {
+          console.error('Unable to write file ', e);
+        }
+      });
+      console.log('hejejejeje');
+    }else{
+      this.pdfObj.download();
+    }
+  }
 }

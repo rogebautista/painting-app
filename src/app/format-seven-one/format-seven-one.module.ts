@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormatSevenOnePageRoutingModule } from './format-seven-one-routing.module';
 
 import { FormatSevenOnePage } from './format-seven-one.page';
-
+import { SignatueModalComponent } from '../components/signatue-modal/signatue-modal.component';
 
 @NgModule({
   imports: [
@@ -17,6 +17,6 @@ import { FormatSevenOnePage } from './format-seven-one.page';
     FormatSevenOnePageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [FormatSevenOnePage]
+  declarations: [FormatSevenOnePage, SignatueModalComponent]
 })
 export class FormatSevenOnePageModule {}
